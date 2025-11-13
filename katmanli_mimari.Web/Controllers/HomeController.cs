@@ -25,9 +25,20 @@ public class HomeController : Controller
         
         string name=_service.GetUserName("Mert","Tavşan");
         ViewData["m"]=name;
-        var users=await _service.GetAllUsersAsync();
-        if (id>0) users=await _service.GetUserByIDAsync(id);    
-        return View(users);
+       // var users=await _service.GetAllUsersAsync();
+        //if (id>0) users=await _service.GetUserByIDAsync(id); 
+
+        if(id==0)
+        {
+            var users= await _service.GetAllUsersAsync();
+            return View(users);
+        }
+        else
+        {
+             var users= await _service.GetUserByIDAsync(id);
+            return View(users);
+        }
+        
     }
 
     public IActionResult Privacy()
