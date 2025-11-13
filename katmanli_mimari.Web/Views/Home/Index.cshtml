@@ -1,0 +1,30 @@
+﻿@model IEnumerable<katmanli_mimari.Data.User>
+
+<h1>Kullanıcılar</h1>
+<table>
+    <thead>
+        <tr><th>ID</th><th>Ad</th><th>Email</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @ViewData["m"]</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
